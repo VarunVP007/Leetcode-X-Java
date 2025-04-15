@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    // Method to merge two strings alternately
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder merged = new StringBuilder(); // StringBuilder to efficiently build the result
+        int i = 0, j = 0; // Index pointers for word1 and word2
+
+        // Loop until both strings are fully traversed
+        while (i < word1.length() || j < word2.length()) {
+            // If there are characters left in word1, add one to result
+            if (i < word1.length()) {
+                merged.append(word1.charAt(i));
+                i++;
+            }
+
+            // If there are characters left in word2, add one to result
+            if (j < word2.length()) {
+                merged.append(word2.charAt(j));
+                j++;
+            }
+        }
+
+        // Return the merged string
+        return merged.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Scanner to take user input
+
+        // Prompt user to enter first word
+        System.out.print("Enter first word: ");
+        String word1 = scanner.nextLine();
+
+        // Prompt user to enter second word
+        System.out.print("Enter second word: ");
+        String word2 = scanner.nextLine();
+
+        // Call merge method and print the result
+        String result = mergeAlternately(word1, word2);
+        System.out.println("Merged word: " + result);
+
+        scanner.close(); // Close the scanner to avoid resource leak
+    }
+}
